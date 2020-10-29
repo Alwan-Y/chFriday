@@ -1,5 +1,90 @@
 <html>
-<b>Halo <%= user %></b>
-<script src="<%= `${process.env.APP_URL}/js/app.js` %>"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Chapter 4</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="<%= `${process.env.APP_URL}/style/style.css` %>">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,400;0,700;0,800;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header class="container-fluid d-flex mt-2">
+        <h3 class="back-btn">&lt;</h3>
+        <img src="<%= `${process.env.APP_URL}/img/logo.png` %>" alt="" class="logo">
+        <h3 class="game-title text-uppercase">rock paper scissors</h3>
+    </header>
+    <main class="container mar-cus">
+        <article class="row mar-cus">
+            <div class="col">
+                <h2 class="text-uppercase text-center">player</h2>
+            </div>
+            <div class="col"></div>
+            <div class="col">
+                <h2 class="text-uppercase text-center">com</h2>
+            </div>
+        </article>
+        <article class="row mar-cus">
+            <div class="col">
+                <p class="text-center"><img class='player rock' src="<%= `${process.env.APP_URL}/img/rock.png` %>"
+                        alt="rock"></p>
+            </div>
+            <div class="col"></div>
+            <div class="col">
+                <p class="rock text-center"><img class="computer compRock"
+                        src="<%= `${process.env.APP_URL}/img/rock.png` %>" alt="rock"></p>
+            </div>
+        </article>
+        <article class="row mar-cus">
+            <div class="col">
+                <p class="text-center"><img class='player paper ' src="<%= `${process.env.APP_URL}/img/paper.png` %>"
+                        alt="paper"></p>
+            </div>
+            <div class="col">
+                <h1 id='gameResult' class="text-center game-result displaySize">vs</h1>
+            </div>
+            <div class="col">
+                <p class="paper text-center"><img class="computer compPaper"
+                        src="<%= `${process.env.APP_URL}/img/paper.png` %>" alt="paper"></p>
+            </div>
+        </article>
+        <article class="row mar-cus">
+            <div class="col">
+                <p class="text-center"><img class='player scissor '
+                        src="<%= `${process.env.APP_URL}/img/scissor.png` %>" alt="scissor"></p>
+            </div>
+            <div class="col"></div>
+            <div class="col">
+                <p class="scissor text-center"><img class="computer compScissor"
+                        src="<%= `${process.env.APP_URL}/img/scissor.png` %>" alt="scissor">
+                </p>
+            </div>
+        </article>
+        <article class="row mar-cus ">
+            <p class="text-center mar-aut"><img class="refresh" src="<%= `${process.env.APP_URL}/img/refresh.png` %>"
+                    alt="refresh"></p>
+        </article>
+    </main>
+
+    <script src="<%= `${process.env.APP_URL}/script/oopDOM.js` %>"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+</body>
 
 </html>

@@ -50,6 +50,7 @@ class PostController {
 
   static update = (req, res) => {
     const { id } = req.params
+    console.log(id)
     const post = data.find((obj) => obj.id === parseInt(id, 10))
 
     if (!post) {
