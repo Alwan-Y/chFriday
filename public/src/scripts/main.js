@@ -41,21 +41,21 @@ const insertBook = (book) => {
 
 const updateBook = (book) => {
     const xhr = new XMLHttpRequest();
-    // console.log(`${book.id}`)
-    xhr.onload = function() {
-        const responseJson = JSON.parse(this.responseText);
-        showResponseMessage(responseJson.message);
-        getBook();
-    }
     
+    xhr.onload = function() {
+    const responseJson = JSON.parse(this.responseText);
+    showResponseMessage(responseJson.message);
+    getBook();
+    }
+
     xhr.onerror = function() {
         showResponseMessage();
     }
-    
-    xhr.open("PUT", `http://localhost:5000/apis/posts/${book.id}`);
-            
+
+    xhr.open("PATCH", `http://localhost:5000/apis/posts/${book.id}`);
+        
     xhr.setRequestHeader("Content-Type", "application/json");
-    
+
     xhr.send(JSON.stringify(book));
     };
 

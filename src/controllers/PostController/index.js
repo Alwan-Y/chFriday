@@ -49,32 +49,40 @@ class PostController {
   }
 
   static update = (req, res) => {
-    const { id } = req.params
+    const { id }  = req.params
+    const bookData = req.body
     console.log(id)
-    const post = data.find((obj) => obj.id === parseInt(id, 10))
+    console.log(req.body)
 
-    if (!post) {
-      return res.status(404).json({ message: 'Not Found' })
+    const getBooksData = () => {
+      const filePath = path.resolve(__dirname, '../../data/data.json')
+      const jsonData = fs.readFileSync(filePath)
+  
+      return JSON.parse(jsonData)
+  }
+
+    const existBooks = getBooksData()
+    const findExist = existBooks.find( book => book.id == id)
+
+    if(!findExist){
+        return res.status(400).send({error: 'ID not exist'})
     }
 
-    // Alternative 1
-    const { title, author } = req.body
-    post.title = title || post.title
-    post.author = author || post.author
+    const updatePost = existBooks.filter(book => book.id != id)
 
-    // Alternative 2
-    // Object.keys(req.body).forEach((key) => {
-    //   if (req.body[key]) {
-    //     post[key] = req.body[key]
-    //   }
-    // })
 
-    return fs.writeFile(
-      filePath,
-      JSON.stringify(data),
-      'utf-8',
-      () => res.status(200).json({ success: true, message: 'data updated', data: req.body }),
-    )
+    updatePost.push(bookData)
+
+    const saveBookData = (data) => {
+      const stringifyData = JSON.stringify(data)
+      const filePath = path.resolve(__dirname, '../../data/data.json')
+  
+      fs.writeFileSync(filePath, stringifyData)
+  }
+
+    saveBookData(updatePost)
+
+    res.send({ success: 'Book data updated successfully'})
   }
 
   static delete = (req, res) => {
